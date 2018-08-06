@@ -1,0 +1,40 @@
+{
+  "name": "prodesign",
+  "version": "1.0.0",
+  "description": "React Component",
+  "main": "",
+  "scripts": {
+    "build-tsc": "task-tools start tsc"
+  },
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [],
+  "keywords": [
+    "typescript",
+    "React",
+    "Component"
+  ],
+  "author": "",
+  "license": "ISC",
+  "typings": "",
+  "config": {
+    "port": 8001
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.4.2"
+  },
+  "devDependencies": {
+    "colorful": "^2.1.0",
+    "commander": "^2.16.0",
+    "gulp": "^3.9.1",
+    "task-tools": "^1.0.1",
+    "webpack-visualizer-plugin": "^0.1.11"
+  }
+}
