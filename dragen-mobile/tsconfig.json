@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "moduleResolution": "node",
     "jsx": "preserve",
-    // noUnusedParameters：不允许未使用的函数参数
-    "noUnusedParameters": true,
-    // noUnusedLocals：不允许未使用的局部变量
-    "noUnusedLocals": true,
-    // allowSyntheticDefaultImports：允许从没有设置默认导出的模块中默认导入
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
     "allowSyntheticDefaultImports":true,
-    // target ：编译目标：ES3为默认、ES5、ES6、ES2015、ES2016、ES2017等
     "target": "es6",
     "types": [
       "classnames",
       "react",
-      "react-dom",
-      "react-native"
+      "react-dom"
     ]
   },
   "exclude": [

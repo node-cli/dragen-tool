@@ -4,6 +4,87 @@ import Icon from '../icon';
 import {ButtonProps as BasePropsType} from './PropsType';
 import TouchFeedback from 'rmc-feedback';
 
+// interface的可选属性 或 readonly, 函数类型 (v: number, s: string): boolean, 可索引类型 [index: number]: string
 export interface ButtonProps extends BasePropsType{
+  prefixCls?: string;
+  className?: string;
+  inline?: boolean;
+  icon?: string;
+  activeClassName?: string;
+}
 
+// 类对接口的实现： class A implements ButtonProps{}
+
+// 类型声明：布尔、数字、字符串、数组:numer[]= 或 Array<number>=、元组(联合类型):[string, number]=、枚举 enum name {var = idx, ...}、any、void、Never、Null和Undefined；类型断言
+// 数组、对象的解构与展开
+
+const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/; // 中文
+const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
+
+function isString(str) {
+  return typeof str === 'string';
+}
+
+function insertSpace(child){
+  // 两者判断的区别
+  if(isString(child.type) && isTwoCNChar(child.props.children)){
+    return React.cloneElement(child, {}, child.props.children.split('').join(' '));
+  }
+  if (isString(child)) {
+    if (isTwoCNChar(child)) {
+      child = child.split('').join(' ');
+    }
+    return <span>{child}</span>;
+  }
+  return child;
+}
+
+
+class Button extends React.Component<ButtonProps, any>{
+  static defaultProps = {
+    prefixCls: 'am-button',
+    size: 'large',
+    inline: false,
+    disabled: false,
+    loading: false,
+    activeStyle: {},
+  };
+  render(){
+    const {children, className, prefixCls, type, size, inline, disabled, icon, loading, activeStyle, activeClassName, onClick, delayPressIn, delayPressOut, ...restProps} = this.props;
+    const iconType: any = loading ? 'loading': icon;
+    const wrapCls = classnames(prefixCls, className, {
+      [`${prefixCls}-primary`]: type === 'primary',
+      [`${prefixCls}-ghost`]: type === 'ghost',
+      [`${prefixCls}-warning`]: type === 'warning',
+      [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-inline`]: inline,
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-icon`]: !!iconType,
+    });
+    const kids = React.Children.map(children, insertSpace);
+    let iconEl;
+    // aria...的作用，classname是 前缀+特性
+    if(typeof iconType === 'string'){
+      iconEl =
+        <Icon aria-hidden = "true"
+            type={iconType}
+            size={size === 'small' ? 'xxs' : 'md'}
+            className={`${prefixCls}-icon`}
+        />
+    }
+    return (
+      <TouchFeedback
+        activeClassName={activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
+        disabled={disabled}
+        activeStyle={activeStyle}
+      >
+        <a role = "button" className={wrapCls} {...restProps} onClick={disabled ? undefined : onClick}  aria-disabled={disabled}
+        >
+          {iconEl}
+          {kids}
+        </a>
+      </TouchFeedback>
+    )
+  }
 }
