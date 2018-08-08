@@ -118,6 +118,14 @@ lint-staged：参考 Git 中 staged 暂存区概念，在每次提交时只检�
 
 - emitDecoratorMetadata：
 
+- noUnusedParameters：不允许未使用的函数参数
+
+- noUnusedLocals：不允许未使用的局部变量
+
+- allowSyntheticDefaultImports：允许从没有设置默认导出的模块中默认导入
+
+- target ：编译目标：ES3为默认、ES5、ES6、ES2015、ES2016、ES2017等
+
 - 给源码里的装饰器声明加上设计类型元数据，即design:开头的元数据，有三个design:type、design:returntype、design:paramtypes,分别为类型、返回类型、参数类型，好像可以在运行时获取到ts类型,这几个元数据是当源码对类、方法、属性使用装饰器时，自动加上的
 
 - experimentalDecorators：启用实验性的ES装饰器，不启用时使用装饰器会报错

@@ -21,8 +21,8 @@ const argv = require('minimist')(process.argv.slice(2));
 const cwd = process.cwd();
 const libDir = path.join(cwd, 'lib');
 const esDir = path.join(cwd, 'es');
-const install = require('./install');
-const runCmd = require('./runCmd');
+// const install = require('./install');
+// const runCmd = require('./runCmd');
 
 
 
@@ -91,7 +91,8 @@ function babelify(js, modules){
   let stream = js.pipe(babel(babelCfg))
     .pipe(through2.obj(function z(file, encoding, next){
       // ?? babel处理之后，对路径与内容的处理
-      this.push(file.clone())
+      console.log(this, this.push);
+      this. push && this.push(file.clone())
       if (file.path.match(/\/style\/index\.js/)) {
         const content = file.contents.toString(encoding);
         if (content.indexOf('\'react-native\'') !== -1) {
@@ -106,7 +107,7 @@ function babelify(js, modules){
           .replace(/\/style\/?'/g, '/style/css\'')
           .replace(/\.less/g, '.css'));
         file.path = file.path.replace(/index\.js/, 'css.js');
-        this.push(file);
+        this. push && this.push(file);
         next();
       } else {
         next();
@@ -173,6 +174,7 @@ gulp.task('guard', (done)=>{
 
 });
 
+// typings中包含的是外部模块，在此处的声明
 const tsFiles = [
   '**/*.ts',
   '**/*.tsx',
@@ -209,7 +211,7 @@ function compileTs(stream){
   return stream.pipe(ts(tsConfig)).js
   .pipe(through2.obj((file, encoding, next)=>{
     file.path = file.path.replace(/\.[jt]sx$/, '.js');
-    this.push(file);
+    this.push && this.push(file);
     next();
   }))
   .pipe(gulp.dest(process.cwd()));

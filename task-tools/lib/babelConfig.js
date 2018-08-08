@@ -19,7 +19,7 @@ module.exports = function(modules){
   return {
     presets: [
       require.resolve('babel-preset-react'),
-      [require.resolve('babel-plugin-transform-runtime'),{
+      [require.resolve('babel-preset-env'), {
         modules,
         targets: {
           browsers: [
@@ -29,10 +29,10 @@ module.exports = function(modules){
             'ie >= 9',
             'iOS >= 8',
             'Android >= 4',
-          ]
-        }
-      }]
+          ],
+        },
+      }],
     ],
     plugins,
-  }
-}
+  };
+};

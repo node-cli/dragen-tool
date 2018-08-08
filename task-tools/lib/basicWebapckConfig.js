@@ -10,7 +10,7 @@ const postcssConfig = require('./postcssConfig');
 
 module.exports = function(modules){
   const pkg = require(path.join(process.cwd(), 'package.json'));
-  const babelCfg = this.require('./babelConfig.js')(modules || false);
+  const babelCfg = require('./babelConfig.js')(modules || false);
   // 按需加载
   const pluginImportOptions = [
     {

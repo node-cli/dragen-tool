@@ -11,9 +11,9 @@ module.exports = function(){
     my = require(tsConfig);
   }
   return assign({
-    noUnusedParameters: true,
-    noUnusedLocals: true,
-    strictNullChecks: true,
+    noUnusedParameters: false,
+    noUnusedLocals: false,
+    strictNullChecks: false,
     target: 'es6',
     jsx: 'preserve',
     moduleResolution: 'node',
