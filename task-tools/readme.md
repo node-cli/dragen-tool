@@ -21,7 +21,14 @@ install which安装 。。npm tnpm
 - ts-lint
 - ts-lint-fix
 
-# npm cli包
+
+## 开发调试，跟踪
+- node --debug  启动bin下面的代码
+- 通过child_process.spawn执行的，只能通过console.log了，可以引入deubg模块
+- damemon模块的调试
+
+
+## npm cli包
 
 1. 通过执行命令， 自动生成项目代码模板
 2. 项目代码模板可以自定义编辑

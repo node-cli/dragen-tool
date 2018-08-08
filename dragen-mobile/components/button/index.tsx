@@ -4,7 +4,6 @@ import Icon from '../icon';
 import {ButtonProps as BasePropsType} from './PropsType';
 import TouchFeedback from 'rmc-feedback';
 
-// interface的可选属性 或 readonly, 函数类型 (v: number, s: string): boolean, 可索引类型 [index: number]: string
 export interface ButtonProps extends BasePropsType{
   prefixCls?: string;
   className?: string;
@@ -12,11 +11,6 @@ export interface ButtonProps extends BasePropsType{
   icon?: string;
   activeClassName?: string;
 }
-
-// 类对接口的实现： class A implements ButtonProps{}
-
-// 类型声明：布尔、数字、字符串、数组:numer[]= 或 Array<number>=、元组(联合类型):[string, number]=、枚举 enum name {var = idx, ...}、any、void、Never、Null和Undefined；类型断言
-// 数组、对象的解构与展开
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/; // 中文
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -39,8 +33,8 @@ function insertSpace(child){
   return child;
 }
 
-
-class Button extends React.Component<ButtonProps, any>{
+// 断言类型
+export default class Button extends React.Component<ButtonProps, any>{
   static defaultProps = {
     prefixCls: 'am-button',
     size: 'large',
