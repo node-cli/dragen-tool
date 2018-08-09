@@ -1,0 +1,29 @@
+{
+  "name": "dragen-dir",
+  "version": "1.0.4",
+  "description": "generator dir and file by config struct",
+  "main": "index.js",
+  "bin": {
+    "dragen-dir": "./createDir.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-cli/dragen-tool.git"
+  },
+  "keywords": [
+    "manage",
+    "your",
+    "dir"
+  ],
+  "author": "mengyue8866",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/node-cli/dragen-tool/issues"
+  },
+  "homepage": "https://github.com/node-cli/dragen-tool#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}

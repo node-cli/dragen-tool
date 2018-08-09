@@ -44,6 +44,7 @@
     "colorful": "^2.1.0",
     "commander": "^2.16.0",
     "deep-assign": "^2.0.0",
+    "dragen-dir": "^1.0.2",
     "enzyme": "^3.4.0",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",

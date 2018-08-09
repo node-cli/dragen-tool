@@ -39,5 +39,6 @@ module.exports = {
       subDir:[{
         fileNames: ['index.less', 'index.tsx']
       }]
-    }]
+    }
+  ]
 }
