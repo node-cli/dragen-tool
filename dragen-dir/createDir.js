@@ -32,7 +32,7 @@ function start(configPath, dir, name){
 function generatorStruct(dir, curPath){
   dir.forEach((item)=>{
     if(item && item.dirName){
-      newPath = `${curPath}/${item.dirName}`;
+      let newPath = `${curPath}/${item.dirName}`;
       createDir(curPath);
       if(item.subDir){
         generatorStruct(item.subDir, newPath);
