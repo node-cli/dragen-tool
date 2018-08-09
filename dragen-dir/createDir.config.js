@@ -2,11 +2,11 @@ module.exports = {
   path: './',
   templates: [
     {
-      content: string,
+      content: 'string',
       name: 'mdTemplate'
     },
-    template: {
-      content: string,
+    {
+      content: 'string',
       name: 'ReactTemplate'
     }
   ],
