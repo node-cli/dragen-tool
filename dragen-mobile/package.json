@@ -6,7 +6,7 @@
   "scripts": {
     "build-tsc": "task-tools start tsc",
     "test": "jest --config .jest.js",
-    "new": "dragen-dir"
+    "new": "dragen-dir process.argv[2]"
   },
   "jest": {
     "testEnvironment": "node"

@@ -15,14 +15,11 @@ const packageInfo = require('../../package.json');
 // program.args  选项  program.templateEngine, program.sauce  ....
 program
   .version(packageInfo.version, '-v, --version')
-  .command('start <name>', 'start specified task')
-  .action((name, action)=>{
-    console.log('runing task', action);
-  })
+  // 子命令
+  .command('run <name>', 'start specified task')
   .parse(process.argv);
 
   const proc = program.runningCommand;
-  console.log(proc);
   if(proc){
     proc.on('close', process.exit.bind(process));
     proc.on('error', ()=>{

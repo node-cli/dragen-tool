@@ -9,11 +9,10 @@ const gulp = require('gulp');
 
 program.option('--help', ()=>{
   console.log('  Usage'.to.bold.blue.color);
-})
+});
 
 program.parse(process.argv);
-
-const task = program.argv[0];
+const task = program.args[0];
 
 if(!task){
   program.help();
