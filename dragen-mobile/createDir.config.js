@@ -1,43 +1,51 @@
 module.exports = {
   path: './',
-  templates: [
-    {
-      content: string,
-      name: 'mdTemplate'
-    },
-    template: {
-      content: string,
-      name: 'ReactTemplate'
-    }
-  ],
+  template:'./createDir.template.js',
   dir: [
     {
       fileName: 'index.md',
-      templte: 'mdTemplate'
+      template: 'indexMd'
     },
     {
       fileName: 'index.tsx',
-      templte: 'ReactTemplate'
+      template: 'indexTsx'
     },
     {
-      fileName: 'PropsType.tsx'
+      fileName: 'PropsType.tsx',
+      template: 'propsTsx'
     },
     {
       dirName: '__tests__',
       subDir:[{
-        fileNames: ['index.test.js', 'demo.test.js']
+        // fileNames:[]只有文件名
+        // 有模板配置
+        files: [{
+          fileName: 'index.test.js',
+          template: 'testIndex',
+        },{
+          template: 'testDemo',
+          fileName: 'demo.test.js'
+        }]
       }]
     },
     {
       dirName: 'demo',
       subDir:[{
-        fileNames: ['basic.md']
+        files:[{
+        fileName: 'basic.md',
+        template: 'basicMdTemplate',
+        }]
       }]
     },
     {
       dirName: 'style',
       subDir:[{
-        fileNames: ['index.less', 'index.tsx']
+        fileNames: ['index.less'],
+        files:[{
+          fileName: 'index.tsx',
+          template: 'styleIndex',
+        }]
       }]
-    }]
+    }
+  ]
 }
