@@ -7,16 +7,16 @@ const pwd = process.cwd();
 function create(){
   let configPath;
   program
-  .arguments('<dir> <name>')
+  .arguments('<name>')
   .option('-c, --config', 'read config')
-  .action((dir, name)=>{
+  .action((name)=>{
     configPath = program.config ? program.config : `${pwd}/createDir.config.js`;
-    start(configPath, path.resolve(dir), name)
+    start(configPath, name)
   })
   .parse(process.argv);
 }
 
-function start(configPath, dir, name){
+function start(configPath,name){
   let config;
   if(fs.existsSync(configPath)){
     config = require(configPath);
@@ -24,7 +24,7 @@ function start(configPath, dir, name){
     console.error(`未找到您的配置文件`)
     process.exit(1);
   }
-  let curPath = `${dir}/${name}`;
+  let curPath = `${config.path}/${name}`;
   if(isExists(curPath)){
     console.error('你的目标文件已存在');
     return;

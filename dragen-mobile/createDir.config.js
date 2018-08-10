@@ -1,5 +1,5 @@
 module.exports = {
-  path: './',
+  path: './components/',
   template:'./createDir.template.js',
   dir: [
     {

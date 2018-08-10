@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "build-tsc": "task-tools start tsc",
-    "test": "jest --config .jest.js"
+    "test": "jest --config .jest.js",
+    "new": "dragen-dir"
   },
   "jest": {
     "testEnvironment": "node"
@@ -44,7 +45,7 @@
     "colorful": "^2.1.0",
     "commander": "^2.16.0",
     "deep-assign": "^2.0.0",
-    "dragen-dir": "^1.0.2",
+    "dragen-dir": "^1.0.5",
     "enzyme": "^3.4.0",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
