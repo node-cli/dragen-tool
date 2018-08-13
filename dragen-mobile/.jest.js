@@ -6,6 +6,12 @@ const transformIgnorePatterns = [
 ];
 
 module.exports = {
+  verbose: true,
+  // testURL: "http://localhost/",
+  projects: [{
+    runner: 'jest-runner',
+    testURL: "http://localhost/",
+  }],
   // 测试之前进行配置或设置测试环境
   setupFiles: [
     './tests/setup.js'
@@ -19,6 +25,7 @@ module.exports = {
     'json',
     'md',
   ],
+  // moduleNameMapper 需要mock处理掉的资源, 如样式
   testPathIgnorePatterns: [
     '/node_modules/',
     '_site',
@@ -32,7 +39,12 @@ module.exports = {
   },
   // 需要测试的目录
   testRegex: libDir === 'dist' ? 'demo\\.test\\.js$' : '.*\\.test\\.js$',
-  // glob模式匹配，测试文件
+  // glob模式匹配，测试文件，覆盖率报告 coverageDirectory, coverageReporters
+  // 是否收集覆盖率collectCoverage
+  // mapCoverage 代码是经过babel-jest转译，让jest能够把测试结果定位到源码上，而非编译的代码上
+  // verbose显示每个测试用例通过与否
+
+  // 是否收集覆盖率
   collectCoverageFrom: [
     'components/**/*.{ts,tsx}',
     '!components/**/*.native.{ts,tsx}',

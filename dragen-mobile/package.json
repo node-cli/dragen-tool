@@ -5,11 +5,13 @@
   "main": "",
   "scripts": {
     "build-tsc": "task-tools start tsc",
-    "test": "jest --config .jest.js",
+    "test": "jest --env=node --config .jest.js",
     "new": "dragen-dir process.argv[2]"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "verbose": true
   },
   "homepage": "",
   "bugs": {
@@ -63,7 +65,7 @@
     "mockdate": "^2.0.2",
     "react-test-renderer": "^16.4.2",
     "rucksack-css": "^1.0.2",
-    "task-tools": "^1.0.6",
+    "task-tools": "^1.0.10",
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
     "webpack-visualizer-plugin": "^0.1.11"

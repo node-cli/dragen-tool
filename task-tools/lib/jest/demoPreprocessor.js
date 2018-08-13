@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const markTwain = require('mark-twain');
 const JsonML = require('jsonml.js/lib/utils');
 const babel = require('babel-core');
-const getBabelCommonConfig = require('../getBabelCommonConfig');
+const getBabelCommonConfig = require('../babelConfig');
 const rewriteSource = require('./rewriteSource');
 const pkg = require('../../package.json');
 
@@ -24,6 +24,7 @@ function getCode(tree) {
   return code;
 }
 
+// visitor 插件配置
 function createDemo({ types: t }) {
   return {
     visitor: {
@@ -52,9 +53,9 @@ function createDemo({ types: t }) {
       },
 
       ImportDeclaration(path) {
-        const libPattern = new RegExp('antd(-mobile)?/lib/.+');
+        const libPattern = new RegExp('dragen(-mobile)?/lib/.+');
         if (libPattern.test(path.node.source.value)) {
-          path.node.source.value = path.node.source.value.replace(/antd(-mobile)?\/lib/, '../../../components');
+          path.node.source.value = path.node.source.value.replace(/dragen(-mobile)?\/lib/, '../../../components');
         }
         rewriteSource(t, path, libDir);
       },
@@ -80,11 +81,11 @@ module.exports = {
         require.resolve('babel-plugin-import'),
         [
           {
-            libraryName: 'antd',
+            libraryName: 'dragen',
             libraryDirectory: `../../../../${libDir}`,
           },
           {
-            libraryName: 'antd-mobile',
+            libraryName: 'dragen-mobile',
             libraryDirectory: `../../../../${libDir}`,
           },
         ],
@@ -93,6 +94,7 @@ module.exports = {
 
     babelConfig.filename = path;
 
+    // 转换markdown内容中的code
     src = babel.transform(src, babelConfig).code;
 
     return src;

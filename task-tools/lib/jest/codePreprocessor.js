@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const { createTransformer } = require('babel-jest');
-const getBabelCommonConfig = require('../getBabelCommonConfig');
+const getBabelCommonConfig = require('../babelConfig');
 const rewriteSource = require('./rewriteSource');
 const tsJest = require('ts-jest/preprocessor');
 const pkg = require('../../package.json');
@@ -23,14 +23,16 @@ module.exports = {
     const babelConfig = getBabelCommonConfig();
     babelConfig.plugins = [...babelConfig.plugins];
 
+      // babel编译配置加上处理dom组件配置
     if (/\/demo\//.test(path)) {
       babelConfig.plugins.push(processDemo);
     }
 
+    // babel配置加上引入组件
     babelConfig.plugins.push([
       require.resolve('babel-plugin-import'),
       {
-        libraryName: 'antd-mobile',
+        libraryName: 'dragen-mobile',
         libraryDirectory: '../../../../components',
       },
     ]);
@@ -42,9 +44,10 @@ module.exports = {
       config.globals['ts-jest'] = config.globals['ts-jest'] || {};
       config.globals['ts-jest'].babelConfig = babelConfig;
 
+      // 进行测试
       return tsJest.process(src, path, config, transformOptions);
     }
-
+    // 创建转义代码
     const babelJest = createTransformer(babelConfig);
     const fileName = isJavaScript ? path : 'file.js';
     return babelJest.process(src, fileName);
