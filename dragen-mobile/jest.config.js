@@ -6,16 +6,10 @@ const transformIgnorePatterns = [
 ];
 
 module.exports = {
-  // verbose: true,
-  // projects: [{
-  //   runner: 'jest-runner',
-  //   testURL: "http://localhost/",
-  // }],
-  // 测试之前进行配置或设置测试环境
-  setupFiles: [
-    './tests/setup.js'
-  ],
   // 支持加载的文件名
+  modulePaths: [
+    './components'
+  ],
   moduleFileExtensions: [
     'ts',
     'tsx',
@@ -23,6 +17,15 @@ module.exports = {
     'jsx',
     'json',
     'md',
+  ],
+  verbose: true,
+  // projects: [{
+  //   runner: 'jest-runner',
+  //   testURL: "http://localhost/",
+  // }],
+  // 测试之前进行配置或设置测试环境
+  setupFiles: [
+    './tests/setup.js'
   ],
   // moduleNameMapper 需要mock处理掉的资源, 如样式
   testPathIgnorePatterns: [
@@ -52,6 +55,7 @@ module.exports = {
   transformIgnorePatterns,
   testEnvironment: 'jsdom',
   testURL: "http://localhost/",
+  setupTestFrameworkScriptFile: "./jest.setup.js"
 };
 
 // test('say', ()=>{ expect()... })
