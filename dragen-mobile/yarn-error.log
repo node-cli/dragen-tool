@@ -1,0 +1,121 @@
+Arguments: 
+  /usr/local/bin/node /Users/mengyue/.yarn/bin/yarn.js ls-remote --tags --heads ssh://git@github.com/react-dom/test-utils.git
+
+PATH: 
+  /Users/mengyue/.yarn/bin:/Users/mengyue/.config/yarn/global/node_modules/.bin:/Users/mengyue/bin:/usr/local/bin:/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/mengyue/Downloads/android-sdk-macosx/platform-tools:work/static/iwjw-base/node_modules/phantomjs-prebuilt/bin/phantomjs:/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.11.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "prodesign",
+    "version": "1.0.0",
+    "description": "React Component",
+    "main": "",
+    "scripts": {
+      "build-tsc": "task-tools start tsc",
+      "test": "jest --config ./jest.config.js",
+      "new": "dragen-dir process.argv[2]"
+    },
+    "jest": {
+      "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "md"
+      ]
+    },
+    "homepage": "",
+    "bugs": {
+      "url": ""
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "files": [],
+    "keywords": [
+      "typescript",
+      "React",
+      "Component"
+    ],
+    "author": "",
+    "license": "ISC",
+    "typings": "",
+    "config": {
+      "port": 8001
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "@babel/core": "^7.0.0-rc.1",
+      "@babel/plugin-transform-runtime": "^7.0.0-rc.1",
+      "@babel/preset-env": "^7.0.0-rc.1",
+      "@babel/preset-react": "^7.0.0-rc.1",
+      "@babel/register": "^7.0.0-rc.1",
+      "@types/classnames": "^2.2.6",
+      "@types/react": "^16.4.8",
+      "@types/react-dom": "^16.0.7",
+      "@types/react-native": "^0.56.6",
+      "babel-core": "7.0.0-bridge.0",
+      "babel-jest": "^23.4.2",
+      "babel-loader": "^8.0.0-beta.4",
+      "babel-plugin-add-module-exports": "^0.2.1",
+      "babel-plugin-import": "^1.8.0",
+      "case-sensitive-paths-webpack-plugin": "^2.1.2",
+      "colorful": "^2.1.0",
+      "commander": "^2.16.0",
+      "deep-assign": "^2.0.0",
+      "dragen-dir": "^1.0.5",
+      "enzyme": "^3.4.1",
+      "enzyme-adapter-react-16": "^1.2.0",
+      "enzyme-to-json": "^3.3.4",
+      "extract-text-webpack-plugin": "^3.0.2",
+      "glob": "^7.1.2",
+      "gulp": "^3.9.1",
+      "gulp-babel": "^7.0.1",
+      "gulp-strip-code": "^0.1.4",
+      "gulp-typescript": "^5.0.0-alpha.3",
+      "gulp-watch": "^5.0.1",
+      "jest": "^23.4.2",
+      "jest-babel": "^1.0.1",
+      "merge2": "^1.2.2",
+      "minimist": "^1.2.0",
+      "mockdate": "^2.0.2",
+      "react": "^16.4.2",
+      "react-test-renderer": "^16.4.2",
+      "rucksack-css": "^1.0.2",
+      "task-tools": "^1.0.22",
+      "ts-jest": "^23.1.3",
+      "typescript": "^3.0.1",
+      "webpack": "^4.16.5",
+      "webpack-visualizer-plugin": "^0.1.11"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command "ls-remote" not found.
+      at new MessageError (/Users/mengyue/.yarn/lib/cli.js:186:110)
+      at /Users/mengyue/.yarn/lib/cli.js:87307:17
+      at Generator.next (<anonymous>)
+      at step (/Users/mengyue/.yarn/lib/cli.js:98:30)
+      at /Users/mengyue/.yarn/lib/cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (/Users/mengyue/.yarn/lib/cli.js:23451:28)
+      at /Users/mengyue/.yarn/lib/cli.js:95:12
+      at runCommand (/Users/mengyue/.yarn/lib/cli.js:87312:22)
+      at Object.<anonymous> (/Users/mengyue/.yarn/lib/cli.js:87412:14)

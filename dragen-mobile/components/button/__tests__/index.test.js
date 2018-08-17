@@ -1,9 +1,10 @@
 import {render} from 'enzyme';
-import {renderToJson} from 'enzyme-to-json';
+import toJson from 'enzyme-to-json';
+import React from 'react';
 import Button from '../index';
 describe('Button', ()=>{
   it('renders corrently', ()=>{
     const wrapper = render(<Button>foo</Button>);
-    expect(renderTOJson(wrapper)).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

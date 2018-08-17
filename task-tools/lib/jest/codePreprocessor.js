@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const { createTransformer } = require('babel-jest');
 const getBabelCommonConfig = require('../babelConfig');
 const rewriteSource = require('./rewriteSource');
-const tsJest = require('ts-jest/preprocessor');
+const tsJest = require('ts-jest');
 const pkg = require('../../package.json');
 
 const libDir = process.env.LIB_DIR || 'components';
@@ -50,7 +50,7 @@ module.exports = {
     // 创建转义代码
     const babelJest = createTransformer(babelConfig);
     const fileName = isJavaScript ? path : 'file.js';
-    return babelJest.process(src, fileName);
+    return babelJest.process(src, fileName, config, transformOptions);
   },
 
   getCacheKey(...args) {

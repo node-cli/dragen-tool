@@ -8,15 +8,12 @@
       "type": "node",
       "request": "launch",
       "name": "Jest Debug",
-      "program": "${workspaceRoot}/node_modules/jest/bin/jest",
-      "stopOnEntry": false,
-      "args": ["--runInBand", "--env=jsdom", "${fileBasename}"],
-      "runtimeArgs": [
-          "--inspect-brk"
-      ],
-      "cwd": "${workspaceRoot}",
-      "sourceMaps": true,
-      "console": "integratedTerminal"
+      "program": "${workspaceRoot}/dragen-mobile/jest.config.js",
+    },{
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "port": 5858
     }
   ]
 }

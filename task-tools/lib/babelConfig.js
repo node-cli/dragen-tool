@@ -13,9 +13,7 @@ module.exports = function(modules){
   if(modules != false){
     plugins.push(require.resolve('babel-plugin-add-module-exports'));
   }
-  plugins.push([require.resolve('babel-plugin-transform-runtime'), {
-    polyfill: false,
-  }]);
+  plugins.push([require.resolve('babel-plugin-transform-runtime')]);
   return {
     presets: [
       require.resolve('babel-preset-react'),

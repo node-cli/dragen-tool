@@ -34,6 +34,11 @@ module.exports = {
     'site'
   ],
   // 用于编译，配置babel-jest使用
+  // transform: {
+  //   '\\.tsx?$' :'babel-jest',
+  //   '\\.js?$' :'babel-jest',
+  //   // '\\.tsx?$' :'babel-jest',
+  // },
   transform: {
     '\\.tsx?$': './node_modules/task-tools/lib/jest/codePreprocessor',
     '\\.js$': './node_modules/task-tools/lib/jest/codePreprocessor',
@@ -55,7 +60,8 @@ module.exports = {
   transformIgnorePatterns,
   testEnvironment: 'jsdom',
   testURL: "http://localhost/",
-  setupTestFrameworkScriptFile: "./jest.setup.js"
+  testRegex: "[a-z]+\.test\.js$"
+  // setupTestFrameworkScriptFile: "./jest.setup.js"
 };
 
 // test('say', ()=>{ expect()... })
