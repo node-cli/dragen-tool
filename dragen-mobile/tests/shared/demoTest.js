@@ -9,7 +9,6 @@ import renderer from 'react-test-renderer';
 
 export function webDemoTest(component, options = {}){
   const files = glob.sync(`./component/${component}/demo/*.md`);
-  console.log(files);
   // 将demo下的md文件
   files.forEach((file)=>{
     // 有skip属性时跳过测试，test是什么？
@@ -22,6 +21,7 @@ export function webDemoTest(component, options = {}){
       MockDate.set('08/082018', -60);
       // 将md文件，渲染后的内容
       const demo = require(`../.${file}`);
+      console.log(demo);
       const wrapper = render(demo);
 
       // 将其转换为json再比较

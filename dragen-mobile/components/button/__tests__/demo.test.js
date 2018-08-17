@@ -1,2 +1,7 @@
 import {webDemoTest} from '../../../tests/shared/demoTest';
-webDemoTest('button');
+describe('button deom', ()=>{
+  it('is test button', ()=>{
+    webDemoTest('button');
+  });
+})
+

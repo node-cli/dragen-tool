@@ -9,6 +9,7 @@
       "request": "launch",
       "name": "Jest Debug",
       "program": "${workspaceRoot}/dragen-mobile/jest.config.js",
+      "runtimeExecutable": "npm",
     },{
       "type": "node",
       "request": "attach",

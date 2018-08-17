@@ -31,7 +31,8 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
     '_site',
-    'site'
+    'site',
+    '__snapshots__'
   ],
   // 用于编译，配置babel-jest使用
   // transform: {
