@@ -26,19 +26,22 @@ module.exports = {
     };
     // dev 环境下统一不 external
     // 因为 preact/devtools 未提供 umd
+    // webpack的externals配置history, react相关模块
     if (!isDev) {
       config.externals = Object.assign(config.externals, prodExternals);
     }
+    // webpack的resolve的alias配置
     config.resolve.alias = {
-      'antd-mobile/lib': path.join(process.cwd(), 'components'),
-      'antd-mobile': process.cwd(),
+      'dragen-mobile/lib': path.join(process.cwd(), 'components'),
+      'dragen-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };
 
+    // react相关模块别名配置
     if (!useReact) {
       config.resolve.alias = Object.assign(config.resolve.alias, preactAlias);
     }
-
+    // webpack.babel相关插件配置
     config.babel.plugins.push([
       'babel-plugin-transform-runtime',
       {
@@ -53,16 +56,19 @@ module.exports = {
       },
     ]);
 
+    // 环境定义插件，与命令转入参数
     config.plugins.push(new webpack.DefinePlugin({ PREACT_DEVTOOLS: isDev && !useReact }));
     return config;
   },
+  // html模板配置扩展数据
   htmlTemplateExtraData: {
     isDev,
     useReact,
     useHD: process.env.HD_ENV === 'hd',
   },
+  // 模板配置
   themeConfig: {
-    siteTitle: 'ANT DESIGN MOBILE',
+    siteTitle: 'Dragen Mobile',
     siteSubTitle: '移动端组件库',
     indexDemos: ['drawer'], // for kitchen 这些组件每个 demo 都需要全屏展示，首页直接放其各个 demo 链接
     subListDemos: ['list-view', 'pull-to-refresh'], // for kitchen 这些组件每个 demo 都需要全屏展示，首页直接放其各个 demo 链接
@@ -86,13 +92,7 @@ module.exports = {
       Gesture: '手势',
       Combination: '组合组件',
       Other: '其他',
-    },
-    // for desktop
-    docVersions: {
-      '0.7.x': 'http://07x.mobile.ant.design',
-      '0.8.x': 'http://08x.mobile.ant.design',
-      '0.9.x': 'http://09x.mobile.ant.design',
-      '1.x': 'http://1x.mobile.ant.design',
+    }
     },
   },
 };

@@ -12,10 +12,11 @@ const kitchenConfig = {
   entryName: 'kitchen-sink',
   theme: './site/kitchen/src',
   htmlTemplate: path.join(__dirname, './kitchen/src/static/template.html'),
-  doraConfig: {
-    verbose: true,
-    plugins: ['dora-plugin-upload'],
-  },
+  devServerConfig: {},
+  // doraConfig: {
+  //   verbose: true,
+  //   plugins: ['dora-plugin-upload'],
+  // },
 };
 
 if (process.env.HD_ENV === 'hd') {

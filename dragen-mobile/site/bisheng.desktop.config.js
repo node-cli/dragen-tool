@@ -11,6 +11,8 @@ module.exports = Object.assign({}, commonConfig, {
       'CHANGELOG.en-US.md',
     ],
   },
+  // 主题：index.js, static/, template/
+  // index包含路由、延迟加载、pick(获取markdown部分数据, 放到propspicked中到模板)、plugins配置
   theme: './site/desktop/src',
   htmlTemplate: path.join(__dirname, './desktop/src/static/template.html'),
   filePathMapper(filePath) {
@@ -25,9 +27,12 @@ module.exports = Object.assign({}, commonConfig, {
     }
     return filePath;
   },
-  doraConfig: {
-    verbose: true,
-  },
+  // doraConfig: {
+  //   verbose: true,
+  // },
+  port: 8001,
+  devServerConfig:{},
+  // 扩展webpack配置
   webpackConfig(config) {
     config = commonConfig.webpackConfig(config);
     return config;
